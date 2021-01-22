@@ -1,35 +1,29 @@
-import React from 'react';
+import React, { useState}from 'react';
 import ReactDOM from 'react-dom';
 
-const Hello = (props) => {
-  const { name, age } = props
-  const bornYear = () => new Date().getFullYear() - age
-
-  return (
-    <div>
-      <p>Hello {props.name}, you are {props.age} year old</p>
-      <p> so you are probably born in {bornYear()}</p>
-    </div>
-  )
-}
-const Footer = () => {
-  return (
-    <div>
-      Greetings
-    </div>
-  )
-}
-
 const App = () => {
-  const name = 'peter'
-  const age = '10'
+  const [left, setLeft] = useState(0)
+  const [right, setRight] = useState(0)
+  const [allClicks, setAll] = useState([])
+
+  const handleLeftClick = () => {
+    setAll(allClicks.concat('L'))
+    setLeft(left + 1)
+  }
+
+  const handleRightClick = () => {
+    setAll(allClicks.concat('R'))
+    setRight(right + 1)
+  }
+
   return (
-    <>
-      <h1>Greetings</h1>
-      <Hello name="george" age={26 + 10}/>
-      <Hello name={name} age={age} />
-      <Footer />
-    </>
+    <div>
+      {left}
+      <button onClick={handleLeftClick}>left</button>
+      <button onClick={handleRightClick}>right</button>
+      {right}
+      <p>{allClicks.join(' ')}</p>
+    </div>
   )
 }
 
