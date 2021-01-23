@@ -1,7 +1,8 @@
-import React, { useState}from 'react';
+import React, { useState }from 'react';
 import ReactDOM from 'react-dom';
 
 const History = (props) => {
+  console.log(props);
   if (props.allClicks.length === 0) {
     return (
       <div>
