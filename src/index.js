@@ -1,36 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App'
 
-const Hello = (props) => {
-  const { name, age } = props
-  const bornYear = () => new Date().getFullYear() - age
+const notes = [
+  {
+    id: 1,
+    content: 'HTML is easy',
+    date: '2019-05-30T17:30:31.098Z',
+    important: true
+  },
+  {
+    id: 2,
+    content: 'Browser can execute only JavaScript',
+    date: '2019-05-30T18:39:34.091Z',
+    important: false
+  },
+  {
+    id: 3,
+    content: 'GET and POST are the most important methods of HTTP protocol',
+    date: '2019-05-30T19:20:14.298Z',
+    important: true
+  }
+]
 
-  return (
-    <div>
-      <p>Hello {props.name}, you are {props.age} year old</p>
-      <p> so you are probably born in {bornYear()}</p>
-    </div>
-  )
-}
-const Footer = () => {
-  return (
-    <div>
-      Greetings
-    </div>
-  )
-}
-
-const App = () => {
-  const name = 'peter'
-  const age = '10'
-  return (
-    <>
-      <h1>Greetings</h1>
-      <Hello name="george" age={26 + 10}/>
-      <Hello name={name} age={age} />
-      <Footer />
-    </>
-  )
-}
-
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App notes={notes} />, document.getElementById('root'))
